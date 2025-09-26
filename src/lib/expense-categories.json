@@ -1,0 +1,459 @@
+{
+   "categories": {
+      "Food": {
+         "keywords": [
+            "eat",
+            "food",
+            "lunch",
+            "dinner",
+            "breakfast",
+            "meal",
+            "restaurant",
+            "cafe",
+            "coffee",
+            "drink",
+            "kimchi",
+            "stew",
+            "pizza",
+            "burger",
+            "sandwich",
+            "salad",
+            "soup",
+            "rice",
+            "noodles",
+            "pasta",
+            "chicken",
+            "beef",
+            "fish",
+            "vegetable",
+            "fruit",
+            "snack",
+            "dessert",
+            "cake",
+            "ice cream",
+            "alcohol",
+            "beer",
+            "wine",
+            "cocktail",
+            "juice",
+            "soda",
+            "water",
+            "tea",
+            "milk"
+         ],
+         "priority": 1
+      },
+      "Transportation": {
+         "keywords": [
+            "transport",
+            "subway",
+            "bus",
+            "taxi",
+            "uber",
+            "lyft",
+            "train",
+            "metro",
+            "gas",
+            "fuel",
+            "drive",
+            "car",
+            "bike",
+            "bicycle",
+            "motorcycle",
+            "parking",
+            "toll",
+            "fare",
+            "ticket",
+            "airplane",
+            "flight",
+            "airport",
+            "rental",
+            "lease",
+            "maintenance",
+            "repair",
+            "insurance"
+         ],
+         "priority": 2
+      },
+      "Shopping": {
+         "keywords": [
+            "shopping",
+            "clothes",
+            "clothing",
+            "shoes",
+            "store",
+            "mall",
+            "buy",
+            "purchase",
+            "shop",
+            "retail",
+            "online",
+            "amazon",
+            "ebay",
+            "electronics",
+            "phone",
+            "laptop",
+            "computer",
+            "furniture",
+            "home",
+            "decor",
+            "cosmetics",
+            "beauty",
+            "skincare",
+            "makeup",
+            "perfume",
+            "jewelry",
+            "watch",
+            "bag",
+            "accessories",
+            "gift",
+            "present",
+            "souvenir"
+         ],
+         "priority": 3
+      },
+      "Medical": {
+         "keywords": [
+            "hospital",
+            "medicine",
+            "medical",
+            "doctor",
+            "pharmacy",
+            "clinic",
+            "health",
+            "treatment",
+            "prescription",
+            "drug",
+            "medication",
+            "surgery",
+            "dental",
+            "dentist",
+            "eye",
+            "glasses",
+            "contact",
+            "lens",
+            "therapy",
+            "counseling",
+            "psychologist",
+            "psychiatrist",
+            "nurse",
+            "ambulance",
+            "emergency",
+            "checkup",
+            "examination",
+            "test",
+            "lab",
+            "xray",
+            "scan"
+         ],
+         "priority": 4
+      },
+      "Communication": {
+         "keywords": [
+            "phone",
+            "internet",
+            "communication",
+            "mobile",
+            "wifi",
+            "data",
+            "call",
+            "message",
+            "text",
+            "email",
+            "subscription",
+            "plan",
+            "service",
+            "provider",
+            "network",
+            "roaming",
+            "charges",
+            "bill",
+            "payment",
+            "renewal",
+            "upgrade",
+            "downgrade",
+            "cancellation",
+            "refund"
+         ],
+         "priority": 5
+      },
+      "Education": {
+         "keywords": [
+            "book",
+            "school",
+            "education",
+            "study",
+            "course",
+            "university",
+            "college",
+            "learn",
+            "class",
+            "tuition",
+            "fee",
+            "textbook",
+            "supplies",
+            "stationery",
+            "pen",
+            "pencil",
+            "paper",
+            "notebook",
+            "laptop",
+            "software",
+            "license",
+            "subscription",
+            "training",
+            "workshop",
+            "seminar",
+            "conference",
+            "certification",
+            "exam",
+            "test",
+            "degree"
+         ],
+         "priority": 6
+      },
+      "Culture": {
+         "keywords": [
+            "movie",
+            "cinema",
+            "culture",
+            "entertainment",
+            "game",
+            "music",
+            "theater",
+            "concert",
+            "show",
+            "play",
+            "musical",
+            "opera",
+            "ballet",
+            "dance",
+            "art",
+            "museum",
+            "gallery",
+            "exhibition",
+            "festival",
+            "event",
+            "party",
+            "celebration",
+            "birthday",
+            "wedding",
+            "vacation",
+            "travel",
+            "trip",
+            "hotel",
+            "accommodation",
+            "tourism",
+            "sightseeing"
+         ],
+         "priority": 7
+      }
+   },
+   "places": {
+      "Home": {
+         "keywords": [
+            "home",
+            "house",
+            "apartment",
+            "room",
+            "bedroom",
+            "kitchen",
+            "living",
+            "dining"
+         ]
+      },
+      "Office": {
+         "keywords": [
+            "office",
+            "work",
+            "company",
+            "building",
+            "desk",
+            "meeting",
+            "conference"
+         ]
+      },
+      "Cafe": {
+         "keywords": [
+            "cafe",
+            "coffee",
+            "starbucks",
+            "coffee shop",
+            "espresso",
+            "latte",
+            "cappuccino"
+         ]
+      },
+      "Restaurant": {
+         "keywords": [
+            "restaurant",
+            "dining",
+            "food",
+            "eat",
+            "lunch",
+            "dinner",
+            "breakfast",
+            "meal"
+         ]
+      },
+      "Mart": {
+         "keywords": [
+            "mart",
+            "supermarket",
+            "grocery",
+            "store",
+            "shop",
+            "market",
+            "mall",
+            "retail"
+         ]
+      },
+      "Online": {
+         "keywords": [
+            "online",
+            "internet",
+            "website",
+            "app",
+            "digital",
+            "virtual",
+            "ecommerce"
+         ]
+      },
+      "Hospital": {
+         "keywords": [
+            "hospital",
+            "clinic",
+            "medical",
+            "doctor",
+            "pharmacy",
+            "health",
+            "treatment"
+         ]
+      },
+      "School": {
+         "keywords": [
+            "school",
+            "university",
+            "college",
+            "education",
+            "study",
+            "class",
+            "campus"
+         ]
+      }
+   },
+   "purposes": {
+      "Meal": {
+         "keywords": [
+            "meal",
+            "lunch",
+            "dinner",
+            "breakfast",
+            "eat",
+            "food",
+            "dining"
+         ]
+      },
+      "Snack": {
+         "keywords": [
+            "snack",
+            "dessert",
+            "candy",
+            "coffee",
+            "drink",
+            "tea",
+            "juice",
+            "soda"
+         ]
+      },
+      "Meeting": {
+         "keywords": [
+            "meeting",
+            "business",
+            "work",
+            "party",
+            "gathering",
+            "conference",
+            "seminar"
+         ]
+      },
+      "Personal Items": {
+         "keywords": [
+            "personal",
+            "cosmetics",
+            "supplies",
+            "clothes",
+            "shoes",
+            "beauty",
+            "skincare"
+         ]
+      },
+      "Household Items": {
+         "keywords": [
+            "household",
+            "cleaning",
+            "home",
+            "furniture",
+            "decor",
+            "kitchen",
+            "bathroom"
+         ]
+      },
+      "Clothing": {
+         "keywords": [
+            "clothing",
+            "clothes",
+            "shoes",
+            "fashion",
+            "wear",
+            "dress",
+            "shirt",
+            "pants"
+         ]
+      },
+      "Transportation": {
+         "keywords": [
+            "transport",
+            "travel",
+            "commute",
+            "ride",
+            "drive",
+            "trip",
+            "journey"
+         ]
+      },
+      "Medical": {
+         "keywords": [
+            "medical",
+            "health",
+            "medicine",
+            "doctor",
+            "treatment",
+            "therapy",
+            "care"
+         ]
+      },
+      "Education": {
+         "keywords": [
+            "education",
+            "study",
+            "book",
+            "course",
+            "learning",
+            "class",
+            "training"
+         ]
+      },
+      "Culture": {
+         "keywords": [
+            "culture",
+            "entertainment",
+            "movie",
+            "game",
+            "music",
+            "art",
+            "leisure"
+         ]
+      }
+   }
+}

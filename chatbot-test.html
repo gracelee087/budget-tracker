@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>예산 챗봇 테스트</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         max-width: 600px;
+         margin: 0 auto;
+         padding: 20px;
+         background-color: #f0f0f0;
+      }
+
+      .chat-container {
+         background: white;
+         border-radius: 10px;
+         padding: 20px;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         height: 400px;
+         overflow-y: auto;
+         margin-bottom: 20px;
+      }
+
+      .message {
+         margin: 10px 0;
+         padding: 10px;
+         border-radius: 10px;
+         max-width: 80%;
+      }
+
+      .user-message {
+         background: #007bff;
+         color: white;
+         margin-left: auto;
+         text-align: right;
+      }
+
+      .bot-message {
+         background: #e9ecef;
+         color: #333;
+      }
+
+      .input-container {
+         display: flex;
+         gap: 10px;
+      }
+
+      input[type="text"] {
+         flex: 1;
+         padding: 10px;
+         border: 1px solid #ddd;
+         border-radius: 5px;
+         font-size: 16px;
+      }
+
+      button {
+         background: #28a745;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+      }
+
+      button:hover {
+         background: #218838;
+      }
+
+      .suggestions {
+         display: flex;
+         gap: 10px;
+         margin-top: 10px;
+         flex-wrap: wrap;
+      }
+
+      .suggestion {
+         background: #f8f9fa;
+         border: 1px solid #dee2e6;
+         padding: 5px 10px;
+         border-radius: 15px;
+         cursor: pointer;
+         font-size: 14px;
+      }
+
+      .suggestion:hover {
+         background: #e9ecef;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>🤖 예산 챗봇 테스트</h1>
+
+   <div class="chat-container" id="chatContainer">
+      <div class="message bot-message">
+         안녕하세요! 예산 관리 챗봇입니다. 무엇을 도와드릴까요?
+      </div>
+   </div>
+
+   <div class="input-container">
+      <input type="text" id="userInput" placeholder="메시지를 입력하세요..." onkeypress="handleKeyPress(event)">
+      <button onclick="sendMessage()">전송</button>
+   </div>
+
+   <div class="suggestions">
+      <div class="suggestion" onclick="sendSuggestion('예산을 어떻게 관리하나요?')">예산 관리 방법</div>
+      <div class="suggestion" onclick="sendSuggestion('월 수입 300만원인데 지출은 얼마까지 가능한가요?')">수입 대비 지출</div>
+      <div class="suggestion" onclick="sendSuggestion('저축 목표를 세우고 싶어요')">저축 목표</div>
+      <div class="suggestion" onclick="sendSuggestion('카드 할부 이자 계산해주세요')">할부 이자</div>
+   </div>
+
+   <script>
+      function addMessage(text, isUser = false) {
+         const chatContainer = document.getElementById('chatContainer');
+         const messageDiv = document.createElement('div');
+         messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+         messageDiv.textContent = text;
+         chatContainer.appendChild(messageDiv);
+         chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+
+      function sendMessage() {
+         const input = document.getElementById('userInput');
+         const message = input.value.trim();
+         if (message) {
+            addMessage(message, true);
+            input.value = '';
+            setTimeout(() => {
+               const response = getBotResponse(message);
+               addMessage(response);
+            }, 1000);
+         }
+      }
+
+      function sendSuggestion(text) {
+         document.getElementById('userInput').value = text;
+         sendMessage();
+      }
+
+      function handleKeyPress(event) {
+         if (event.key === 'Enter') {
+            sendMessage();
+         }
+      }
+
+      function getBotResponse(message) {
+         const lowerMessage = message.toLowerCase();
+
+         if (lowerMessage.includes('예산') && lowerMessage.includes('관리')) {
+            return '예산 관리는 다음과 같이 하시면 됩니다:\n1. 수입과 지출을 정확히 파악\n2. 50-30-20 법칙 적용 (필수지출 50%, 선택지출 30%, 저축 20%)\n3. 매일 지출 내역 기록\n4. 월말에 분석 및 조정';
+         }
+
+         if (lowerMessage.includes('수입') && lowerMessage.includes('지출')) {
+            const income = extractNumber(message);
+            if (income) {
+               const essential = Math.floor(income * 0.5);
+               const optional = Math.floor(income * 0.3);
+               const savings = Math.floor(income * 0.2);
+               return `월 수입 ${income.toLocaleString()}원 기준:\n• 필수지출: ${essential.toLocaleString()}원 (50%)\n• 선택지출: ${optional.toLocaleString()}원 (30%)\n• 저축: ${savings.toLocaleString()}원 (20%)`;
+            }
+            return '수입 대비 지출 비율을 알려드릴게요. 월 수입을 말씀해주세요!';
+         }
+
+         if (lowerMessage.includes('저축') || lowerMessage.includes('목표')) {
+            return '저축 목표 설정 방법:\n1. 목표 금액과 기간 설정\n2. 월 저축 가능 금액 계산\n3. 자동이체 설정\n4. 정기적으로 진행상황 확인\n\n예: 1년 후 1000만원 목표 → 월 83만원 저축 필요';
+         }
+
+         if (lowerMessage.includes('할부') || lowerMessage.includes('이자')) {
+            return '카드 할부 이자 계산:\n• 3개월: 연 15-20%\n• 6개월: 연 18-25%\n• 12개월: 연 20-30%\n\n예: 100만원 12개월 할부 → 월 약 8.3만원 + 이자\n💡 할부보다는 현금 구매를 권장합니다!';
+         }
+
+         if (lowerMessage.includes('안녕') || lowerMessage.includes('hello')) {
+            return '안녕하세요! 예산 관리에 대해 궁금한 것이 있으시면 언제든 물어보세요!';
+         }
+
+         return '죄송합니다. 예산 관리 관련 질문을 해주시면 더 정확한 답변을 드릴 수 있습니다. 위의 제안 버튼을 클릭해보세요!';
+      }
+
+      function extractNumber(text) {
+         const numbers = text.match(/\d+/g);
+         return numbers ? parseInt(numbers[0]) : null;
+      }
+
+      // 초기 메시지
+      setTimeout(() => {
+         addMessage('💡 위의 제안 버튼을 클릭해서 다양한 질문을 해보세요!');
+      }, 2000);
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>간단한 테스트</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 20px;
+         background-color: #f5f5f5;
+      }
+
+      .container {
+         background: white;
+         padding: 30px;
+         border-radius: 10px;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+         color: #333;
+         text-align: center;
+      }
+
+      .test-box {
+         background: #e3f2fd;
+         padding: 20px;
+         margin: 20px 0;
+         border-radius: 5px;
+         border-left: 4px solid #2196f3;
+      }
+
+      button {
+         background: #4caf50;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+      }
+
+      button:hover {
+         background: #45a049;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <h1>🎉 간단한 테스트 페이지</h1>
+
+      <div class="test-box">
+         <h3>테스트 성공!</h3>
+         <p>이 페이지가 보이면 웹 서버가 정상적으로 작동하고 있습니다.</p>
+      </div>
+
+      <div class="test-box">
+         <h3>동적 테스트</h3>
+         <p>현재 시간: <span id="time"></span></p>
+         <button onclick="updateTime()">시간 업데이트</button>
+      </div>
+
+      <div class="test-box">
+         <h3>예산 테스트</h3>
+         <p>수입: <input type="number" id="income" placeholder="월 수입">원</p>
+         <p>지출: <input type="number" id="expense" placeholder="월 지출">원</p>
+         <button onclick="calculateBudget()">예산 계산</button>
+         <p id="result"></p>
+      </div>
+   </div>
+
+   <script>
+      function updateTime() {
+         document.getElementById('time').textContent = new Date().toLocaleString('ko-KR');
+      }
+
+      function calculateBudget() {
+         const income = parseInt(document.getElementById('income').value) || 0;
+         const expense = parseInt(document.getElementById('expense').value) || 0;
+         const balance = income - expense;
+
+         const result = document.getElementById('result');
+         if (balance > 0) {
+            result.innerHTML = `<strong style="color: green;">잔액: +${balance.toLocaleString()}원 (흑자)</strong>`;
+         } else if (balance < 0) {
+            result.innerHTML = `<strong style="color: red;">잔액: ${balance.toLocaleString()}원 (적자)</strong>`;
+         } else {
+            result.innerHTML = `<strong style="color: blue;">잔액: 0원 (수지균형)</strong>`;
+         }
+      }
+
+      // 페이지 로드시 시간 표시
+      updateTime();
+   </script>
+</body>
+
+</html>
