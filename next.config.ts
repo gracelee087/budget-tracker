@@ -28,6 +28,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   
+  // Vercel 배포 설정
+  output: 'standalone',
+  
   // 환경 변수
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
