@@ -322,7 +322,7 @@ export const expenseAPI = {
          const allKeys = Object.keys(localStorage);
          const expenseKeys = allKeys.filter(key => key.startsWith(`expense_${userId}_`));
 
-         let allExpenses: any[] = [];
+         let allExpenses: Expense[] = [];
 
          for (const key of expenseKeys) {
             const data = localStorage.getItem(key);
@@ -391,7 +391,7 @@ export const expenseAPI = {
                      .eq('id', expense.category_id)
                      .single();
                   category = categoryData;
-               } catch (e) {
+               } catch {
                   console.log('Category query failed, trying by name:', expense.category_id);
                   // If it's a name instead of ID
                   const { data: categoryData } = await supabase
@@ -412,7 +412,7 @@ export const expenseAPI = {
                      .eq('id', expense.purpose_id)
                      .single();
                   purpose = purposeData;
-               } catch (e) {
+               } catch {
                   console.log('Purpose query failed, trying by name:', expense.purpose_id);
                   const { data: purposeData } = await supabase
                      .from('purposes')
@@ -432,7 +432,7 @@ export const expenseAPI = {
                      .eq('id', expense.place_id)
                      .single();
                   place = placeData;
-               } catch (e) {
+               } catch {
                   console.log('Place query failed, trying by name:', expense.place_id);
                   const { data: placeData } = await supabase
                      .from('places')

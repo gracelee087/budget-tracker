@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+// Navigation component for tab switching
 
 interface NavigationProps {
    activeTab: string;

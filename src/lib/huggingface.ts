@@ -146,7 +146,7 @@ export class HuggingFaceLLM {
       console.log('Base date:', dateStr);
 
       // Extract date from natural language
-      let extractedDate = this.extractDateFromText(text, berlinTime);
+      const extractedDate = this.extractDateFromText(text, berlinTime);
       console.log('Extracted date:', extractedDate);
 
       // Extract amount (very simple method)
@@ -362,7 +362,6 @@ export class HuggingFaceLLM {
    private getBerlinTime(utcDate: Date): Date {
       // Simple method: determine summer/winter time based on current month
       const month = utcDate.getMonth() + 1; // 1-12
-      const hour = utcDate.getHours();
 
       // Summer time (last Sunday of March ~ last Sunday of October): UTC+2
       // Winter time (last Sunday of October ~ last Sunday of March): UTC+1
@@ -382,7 +381,6 @@ export class HuggingFaceLLM {
       const yesterday = new Date(today.getTime() - (24 * 60 * 60 * 1000));
       const tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000));
       const currentYear = today.getFullYear();
-      const currentMonth = today.getMonth() + 1;
 
       console.log('Extracting date...', text);
 

@@ -1,10 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface ExpenseFormProps {
-   onSubmit: (expense: any) => void;
+   onSubmit: (expense: ExpenseData) => void;
    onCancel: () => void;
+}
+
+interface ExpenseData {
+   date: string;
+   category: string;
+   purpose: string;
+   place: string;
+   amount: number;
+   description: string;
 }
 
 export default function ExpenseForm({ onSubmit, onCancel }: ExpenseFormProps) {

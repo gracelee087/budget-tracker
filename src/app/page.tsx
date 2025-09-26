@@ -119,9 +119,9 @@ export default function Home() {
       await expenseAPI.addExpense({
         user_id: '550e8400-e29b-41d4-a716-446655440000',
         expense_date: expense.date,
-        category_id: categoryMapping[expense.category] || null,
-        purpose_id: purposeMapping[expense.purpose] || null,
-        place_id: placeMapping[expense.place] || null,
+        category_id: categoryMapping[expense.category] || undefined,
+        purpose_id: purposeMapping[expense.purpose] || undefined,
+        place_id: placeMapping[expense.place] || undefined,
         amount: expense.amount,
         description: expense.description
       });
